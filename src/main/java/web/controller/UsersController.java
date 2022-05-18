@@ -10,8 +10,12 @@ import web.service.UserService;
 @Controller
 public class UsersController {
 
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public UsersController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping()
     public String printUsers(Model model) {
